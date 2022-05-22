@@ -1,3 +1,5 @@
 <resources>
-    <string name="app_name">MarvelDataVerse</string>
+    <string name="app_name" translatable="false">MarvelDataVerse</string>
+    <!-- General -->
+    <string name="characters">Characters</string>
 </resources>
