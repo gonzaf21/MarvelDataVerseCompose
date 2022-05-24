@@ -2,4 +2,6 @@
     <string name="app_name" translatable="false">MarvelDataVerse</string>
     <!-- General -->
     <string name="characters">Characters</string>
+    <string name="comics">Comics</string>
+    <string name="events">Events</string>
 </resources>

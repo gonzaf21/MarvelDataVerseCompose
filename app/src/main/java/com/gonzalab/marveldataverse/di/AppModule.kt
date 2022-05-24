@@ -39,6 +39,11 @@ object AppModule {
     }
     @Provides
     @Singleton
+    fun provideApiKeyInterceptor(): ApiKeyInterceptor {
+        return ApiKeyInterceptor()
+    }
+    @Provides
+    @Singleton
     fun provideCharacterApi(retrofit: Retrofit): CharacterApi {
         return retrofit.create()
     }
