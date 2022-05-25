@@ -3,4 +3,5 @@
     <string name="characters">Personajes</string>
     <string name="comics">Comics</string>
     <string name="events">Eventos</string>
+    <string name="generic_api_error">Error cargando datos.</string>
 </resources>
