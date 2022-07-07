@@ -2,6 +2,8 @@ package com.gonzalab.marveldataverse.presentation.character_list
 
 import androidx.compose.animation.animateContentSize
 import androidx.compose.animation.core.animateFloatAsState
+import androidx.compose.foundation.combinedClickable
+import androidx.compose.foundation.gestures.*
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
@@ -15,6 +17,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.rotate
 import androidx.compose.ui.draw.scale
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
@@ -38,9 +41,7 @@ fun CharacterItem(
         modifier = modifier
             .fillMaxWidth()
             .animateContentSize(),
-        onClick = {
-            expandedState = !expandedState
-        }
+        onClick = { expandedState = !expandedState }
     ) {
         Row(
             Modifier
@@ -67,7 +68,8 @@ fun CharacterItem(
             Spacer(modifier = Modifier.width(16.dp))
             Column() {
                 Row(
-                    modifier = Modifier.fillMaxWidth()
+                    modifier = Modifier
+                        .fillMaxWidth()
                 ) {
                     Text(
                         text = character.name,

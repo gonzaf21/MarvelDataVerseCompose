@@ -1,7 +1,7 @@
 package com.gonzalab.marveldataverse.data.remote
 
-import com.gonzalab.marveldataverse.data.remote.dto.BaseResponseDto
 import com.gonzalab.marveldataverse.data.remote.dto.CharacterDto
+import com.gonzalab.marveldataverse.data.remote.dto.common.BaseResponseDto
 import com.gonzalab.marveldataverse.data.remote.paging.CharacterSource
 import retrofit2.http.GET
 import retrofit2.http.Query

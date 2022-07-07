@@ -1,4 +1,4 @@
-package com.gonzalab.marveldataverse.data.remote.dto
+package com.gonzalab.marveldataverse.data.remote.dto.common
 
 data class BaseResponseDto<T>(
     val attributionHTML: String,

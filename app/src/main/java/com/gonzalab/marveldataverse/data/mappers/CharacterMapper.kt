@@ -1,87 +1,40 @@
 package com.gonzalab.marveldataverse.data.mappers
 
-import com.gonzalab.marveldataverse.data.remote.dto.*
-import com.gonzalab.marveldataverse.domain.model.*
+import com.gonzalab.marveldataverse.data.remote.dto.CharacterDto
+import com.gonzalab.marveldataverse.data.remote.dto.common.*
+import com.gonzalab.marveldataverse.domain.model.Character
+import com.gonzalab.marveldataverse.domain.model.common.*
 
+// Character.
 fun CharacterDto.toCharacter(): Character {
     return Character(
-        comics = comics.toComic(),
+        comics = comics.toDataCollection(),
         description = description,
-        events = events.toEvent(),
+        events = events.toDataCollection(),
         id = id,
         modified = modified,
         name = name,
         resourceURI = resourceURI,
-        series = series.toSeries(),
-        stories = stories.toStory(),
+        series = series.toDataCollection(),
+        stories = stories.toDataCollection(),
         thumbnail = thumbnail.toThumbnail(),
         urls = urls.map { it.toUrl() }
     )
 }
 
-// Comic.
-fun ComicDto.toComic(): Comic {
-    return Comic(
+// Generic data collection.
+fun DataCollectionDto.toDataCollection(): DataCollection {
+    return DataCollection(
         available = available,
         collectionURI = collectionURI,
-        items = items.map { it.toComicItem() },
+        items = items.map { it.toItem() },
         returned = returned
     )
 }
 
-fun ComicItemDto.toComicItem(): ComicItem {
-    return ComicItem(
-        name = name,
-        resourceURI = resourceURI
-    )
-}
-
-// Event.
-fun EventDto.toEvent(): Event {
-    return Event(
-        available = available,
-        collectionURI = collectionURI,
-        items = items.map { it.toEventItem() },
-        returned = returned
-    )
-}
-
-fun EventItemDto.toEventItem(): EventItem {
-    return EventItem(
-        name = name,
-        resourceURI = resourceURI
-    )
-}
-
-// Series.
-fun SeriesDto.toSeries(): Series {
-    return Series(
-        available = available,
-        collectionURI = collectionURI,
-        items = items.map { it.toSeriesItem() },
-        returned = returned
-    )
-}
-
-fun SeriesItemDto.toSeriesItem(): SeriesItem {
-    return SeriesItem(
-        name = name,
-        resourceURI = resourceURI
-    )
-}
-
-// Story.
-fun StoryDto.toStory(): Story {
-    return Story(
-        available = available,
-        collectionURI = collectionURI,
-        items = items.map { it.toStoryItem() },
-        returned = returned
-    )
-}
-
-fun StoryItemDto.toStoryItem(): StoryItem {
-    return StoryItem(
+// Generic item data.
+fun ItemDto.toItem(): Item {
+    return Item(
         name = name,
         resourceURI = resourceURI,
         type = type

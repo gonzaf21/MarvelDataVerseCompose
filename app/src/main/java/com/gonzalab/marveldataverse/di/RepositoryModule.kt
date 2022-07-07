@@ -1,7 +1,9 @@
 package com.gonzalab.marveldataverse.di
 
 import com.gonzalab.marveldataverse.data.repository.CharacterRepositoryImpl
+import com.gonzalab.marveldataverse.data.repository.ComicRepositoryImpl
 import com.gonzalab.marveldataverse.domain.repository.CharacterRepository
+import com.gonzalab.marveldataverse.domain.repository.ComicRepository
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
@@ -16,4 +18,10 @@ abstract class RepositoryModule {
     abstract fun bindCharacterRepository(
         characterRepositoryImpl: CharacterRepositoryImpl
     ): CharacterRepository
+
+    @Binds
+    @Singleton
+    abstract fun bindComicRepository(
+        comicRepositoryImpl: ComicRepositoryImpl
+    ): ComicRepository
 }

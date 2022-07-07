@@ -45,9 +45,7 @@ fun CharacterListScreen(
                     character = item,
                     modifier = Modifier
                         .fillMaxWidth()
-                        .clickable {
-                            // TODO: Click is inside item composable. 
-                        })
+                )
             }
         }
 

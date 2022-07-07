@@ -2,6 +2,7 @@ package com.gonzalab.marveldataverse.di
 
 import com.gonzalab.marveldataverse.BuildConfig
 import com.gonzalab.marveldataverse.data.remote.CharacterApi
+import com.gonzalab.marveldataverse.data.remote.ComicApi
 import com.gonzalab.marveldataverse.util.ApiKeyInterceptor
 import com.gonzalab.marveldataverse.util.Constants
 import dagger.Module
@@ -37,14 +38,22 @@ object AppModule {
             .addConverterFactory(MoshiConverterFactory.create())
             .build()
     }
+
     @Provides
     @Singleton
     fun provideApiKeyInterceptor(): ApiKeyInterceptor {
         return ApiKeyInterceptor()
     }
+
     @Provides
     @Singleton
     fun provideCharacterApi(retrofit: Retrofit): CharacterApi {
+        return retrofit.create()
+    }
+
+    @Provides
+    @Singleton
+    fun provideComicApi(retrofit: Retrofit): ComicApi {
         return retrofit.create()
     }
 }

@@ -1,83 +1,19 @@
 package com.gonzalab.marveldataverse.domain.model
 
+import com.gonzalab.marveldataverse.domain.model.common.DataCollection
+import com.gonzalab.marveldataverse.domain.model.common.Thumbnail
+import com.gonzalab.marveldataverse.domain.model.common.Url
+
 data class Character(
-    val comics: Comic,
+    val comics: DataCollection,
     val description: String,
-    val events: Event,
+    val events: DataCollection,
     val id: Int,
     val modified: String,
     val name: String,
     val resourceURI: String,
-    val series: Series,
-    val stories: Story,
+    val series: DataCollection,
+    val stories: DataCollection,
     val thumbnail: Thumbnail,
     val urls: List<Url>
-)
-
-data class Comic(
-    val available: Int,
-    val collectionURI: String,
-    val items: List<ComicItem>,
-    val returned: Int
-)
-
-data class Event(
-    val available: Int,
-    val collectionURI: String,
-    val items: List<EventItem>,
-    val returned: Int
-)
-
-data class Series(
-    val available: Int,
-    val collectionURI: String,
-    val items: List<SeriesItem>,
-    val returned: Int
-)
-
-data class Story(
-    val available: Int,
-    val collectionURI: String,
-    val items: List<StoryItem>,
-    val returned: Int
-)
-
-data class Thumbnail(
-    val extension: String,
-    val path: String
-) {
-    fun url(): String {
-        return "${
-            path.replace(
-                "http",
-                "https"
-            )
-        }.$extension" // Coil just does not work with http normal requests.
-    }
-}
-
-data class Url(
-    val type: String,
-    val url: String
-)
-
-data class ComicItem(
-    val name: String,
-    val resourceURI: String
-)
-
-data class EventItem(
-    val name: String,
-    val resourceURI: String
-)
-
-data class SeriesItem(
-    val name: String,
-    val resourceURI: String
-)
-
-data class StoryItem(
-    val name: String,
-    val resourceURI: String,
-    val type: String
 )
